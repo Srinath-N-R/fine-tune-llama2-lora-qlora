@@ -9,14 +9,6 @@ This repository provides a script for fine-tuning the Llama 2 model using Low-Ra
 - [Overview](#overview)
 - [Features](#features)
 - [Requirements](#requirements)
-- [Setup](#setup)
-- [Usage](#usage)
-  - [Configuration](#configuration)
-  - [Training the Model](#training-the-model)
-  - [Generating Text](#generating-text)
-- [Repository Structure](#repository-structure)
-- [License](#license)
-- [Contributing](#contributing)
 
 ---
 
