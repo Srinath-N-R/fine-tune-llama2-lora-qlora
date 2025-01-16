@@ -1,0 +1,47 @@
+model:
+  name: "NousResearch/Llama-2-7b-chat-hf"
+  new_name: "Llama-2-7b-chat-finetune-qlora"
+
+dataset:
+  name: "mlabonne/guanaco-llama2-1k"
+  text_field: "text"
+
+lora:
+  r: 64
+  alpha: 16
+  dropout: 0.1
+
+bits_and_bytes:
+  use_4bit: true
+  compute_dtype: "float16"
+  quant_type: "nf4"
+  use_nested_quant: false
+
+training:
+  output_dir: "./outputs"
+  num_train_epochs: 5
+  train_batch_size: 4
+  eval_batch_size: 4
+  gradient_accumulation_steps: 1
+  learning_rate: 2e-4
+  weight_decay: 0.001
+  max_grad_norm: 0.3
+  optimizer: "paged_adamw_32bit"
+  lr_scheduler_type: "cosine"
+  seed: 1
+  max_steps: -1
+  warmup_ratio: 0.03
+  group_by_length: true
+  save_steps: 0
+  logging_steps: 50
+  fp16: false
+  bf16: false
+  device_map:
+    "": 0
+  max_seq_length: null
+  packing: false
+  final_model_path: "./outputs/final_model"
+
+testing:
+  prompt: "How can I learn to optimize my webpage for search engines?"
+  max_length: 200
